@@ -6,14 +6,27 @@ const Expect = require("chai").expect;
 const Should = require("chai").should();
 
 describe("TinyShell", function() {
-  describe("Test Buffer", function() {
-    it("write('done').read() -> 'done'", function() {
-      let tiny = new TinyShell().write("done");
-      Expect(tiny.read()).to.equal("done");
+  describe("Test Prompt", function() {
+    it("prompt.write('done').read()", function() {
+      let out = new TinyShell().prompt.write("done").read();
+      Expect(out).to.equal("done");
     });
-    it("write('done').flush().read() -> ''", function() {
-      let tiny = new TinyShell().write("done").flush();
-      Expect(tiny.read()).to.be.empty;
+
+    it("prompt.write('done').flush().read()", function() {
+      let out = new TinyShell().prompt
+        .write("done")
+        .flush()
+        .read();
+      Expect(out).to.be.empty;
+    });
+
+    it("prompt.write('done').pop().pop().read()", function() {
+      let out = new TinyShell().prompt
+        .write("done")
+        .pop()
+        .pop()
+        .read();
+      Expect(out).to.equal("do");
     });
   });
 });

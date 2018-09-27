@@ -9,11 +9,14 @@
 </head>
 
 <body>
+  <canvas id="shell"></canvas>
+
   <script src="../static/bundle.js"></script>
   <script>
     let tinyShell = new TinyShell();
-    tinyShell.write("Hello");
-    document.write(tinyShell.read());
+    //@ Implement: tinyShell.visualize(document.getElementById("shell"));
+    tinyShell.prompt.write("Hello");
+    document.write(tinyShell.prompt.read());
   </script>
 </body>
 
