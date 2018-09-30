@@ -1,5 +1,5 @@
 // Main entry point.
-module.exports = TinyShell = require("./src/tiny-shell.js");
+module.exports = TinyShell = require("./src/shell.js");
 
 /*
   @TODO: 

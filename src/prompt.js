@@ -4,24 +4,11 @@ const Util = require("./util.js");
 
 module.exports = class Prompt {
   // -----------------------------------
-
-  constructor(maxBufferSize = 200) {
-    this._maxBufferSize = maxBufferSize;
+  constructor(width) {
+    this._width = width;
     this._buffer = "";
     this._cursor = "▃";
   }
-
-  // -----------------------------------
-
-  get maxBufferSize() {
-    return this._maxBufferSize;
-  }
-
-  get buffer() {
-    return this._buffer;
-  }
-
-  // -----------------------------------
 
   flush() {
     this._buffer = "";
@@ -36,12 +23,18 @@ module.exports = class Prompt {
   }
 
   read() {
-    return this.buffer;
+    return "$ " + this._buffer + this._cursor;
+  }
+
+  rawBuffer(){
+    return this._buffer;
   }
 
   write(text) {
-    // @Todohere: if(typeof text !== string|char)
-    this._buffer = Util.trimBuffer(this.buffer + text, this.maxBufferSize);
+    if(typeof text !== "string"){
+      Util.error("write(text) - 'text' must be of type string.");
+    }
+    this._buffer = Util.trimBuffer(this._buffer + text, this.maxBufferSize);
     return this;
   }
   // -----------------------------------

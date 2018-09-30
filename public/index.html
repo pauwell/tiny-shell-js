@@ -13,10 +13,7 @@
 
   <script src="../static/bundle.js"></script>
   <script>
-    let tinyShell = new TinyShell();
-    //@ Implement: tinyShell.visualize(document.getElementById("shell"));
-    tinyShell.prompt.write("Hello");
-    document.write(tinyShell.prompt.read());
+    let tinyShell = new TinyShell(320,240,14, document.getElementById("shell"));
   </script>
 </body>
 

@@ -1,6 +1,6 @@
 "use strict";
 
-const TinyShell = require("../src/tiny-shell.js");
+const TinyShell = require("../src/shell.js");
 const Assert = require("assert");
 const Expect = require("chai").expect;
 const Should = require("chai").should();
