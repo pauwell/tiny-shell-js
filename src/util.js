@@ -5,12 +5,12 @@ function trimBuffer(buffer, maxBufferSize) {
   return buffer.length > maxBufferSize
     ? buffer.substr(buffer.length - maxBufferSize)
     : buffer;
-};
+}
 
 // Handle errors.
-function error(msg){
-  throw "[Error][" + msg + "]\n";
-};
+function error(at, info) {
+  throw "[Error][" + at + "][" + info + "]\n";
+}
 
 // Export.
 module.exports = {

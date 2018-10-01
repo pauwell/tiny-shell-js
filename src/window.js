@@ -12,12 +12,12 @@ module.exports = class Window {
     this._canvas.height = height;
   }
 
-  draw(historyText, promptText){
+  draw(historyText, promptText) {
     // Get the canvas context.
     let context = this._canvas.getContext("2d");
 
     // Clear the canvas.
-    context.fillStyle="#000";
+    context.fillStyle = "#000";
     context.fillRect(0, 0, this._width, this._height);
 
     // Clear the path.
@@ -30,14 +30,13 @@ module.exports = class Window {
     context.globalAlpha = 1;
 
     // Font.
-    context.fillStyle="#FFF";
-    context.font= (this._fontSize + "px Consolas");
+    context.fillStyle = "#FFF";
+    context.font = this._fontSize + "px Consolas";
 
     // Draw history.
     historyText.forEach((entry, idx, arr) => {
       context.fillText(entry, 10, idx * this._fontSize + this._fontSize);
     });
-    
 
     // Draw prompt.
     context.fillText(promptText, 10, this._height - this._fontSize);

@@ -7,11 +7,11 @@ module.exports = class History {
     this._entries = [];
   }
 
-  read(){
+  read() {
     return this._entries;
   }
 
-  write(entry){
+  write(entry) {
     this._entries.push(entry);
     return this;
   }

@@ -26,12 +26,12 @@ module.exports = class Prompt {
     return "$ " + this._buffer + this._cursor;
   }
 
-  rawBuffer(){
+  rawBuffer() {
     return this._buffer;
   }
 
   write(text) {
-    if(typeof text !== "string"){
+    if (typeof text !== "string") {
       Util.error("write(text) - 'text' must be of type string.");
     }
     this._buffer = Util.trimBuffer(this._buffer + text, this.maxBufferSize);
