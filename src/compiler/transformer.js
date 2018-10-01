@@ -57,6 +57,8 @@ function transformer(ast) {
         // so that we can push arguments.
         node._context = expression.arguments;
 
+        //console.log(parent);
+
         // Then we're going to check if the parent node is a `CallExpression`.
         // If it is not...
         if (parent.type !== "CallExpression") {

@@ -29,7 +29,7 @@ function traverser(ast, visitor) {
       // (Remember that `traverseArray` will in turn call `traverseNode` so  we
       // are causing the tree to be traversed recursively)
       case "Program":
-        traverseArray(node.body, parent);
+        traverseArray(node.body, node);
         break;
       // Next we do the same with `CallExpression` and traverse their `params`.
       case "CallExpression":

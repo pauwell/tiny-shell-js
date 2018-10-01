@@ -25,9 +25,9 @@ function generator(node) {
     // we'll add a closing parenthesis.
     case "CallExpression":
       return (
-        codeGenerator(node.callee) +
+        generator(node.callee) +
         "(" +
-        node.arguments.map(codeGenerator).join(", ") +
+        node.arguments.map(generator).join(", ") +
         ")"
       );
 
