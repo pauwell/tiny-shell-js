@@ -16,7 +16,8 @@ module.exports = class Shell {
     this.window.draw(this.history.read(), this.prompt.read());
 
     // Handle keyboard-input.
-    window.addEventListener(
+    canvas.setAttribute("tabindex", "1");
+    canvas.addEventListener(
       "keydown",
       function(e) {
         var k = e.key;
