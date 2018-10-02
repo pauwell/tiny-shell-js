@@ -6,15 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Tiny Shell</title>
+  <style>
+    #compiler-input,
+    #compiler-output {
+      width: 50%;
+      margin: 0 auto;
+      resize: vertical;
+    }
+  </style>
 </head>
 
 <body>
-  <canvas id="shell"></canvas>
+  <h1>Shell</h1>
+  <canvas id="shell-wrap"></canvas><br>
+  <h1>Compiler</h1>
+  <textarea id="compiler-input" placeholder="input lisp.." rows="10"></textarea>
+  <button id="compiler-compile">Compile</button>
+  <textarea id="compiler-output" placeholder="output js.." rows="10"></textarea>
 
-  <script src="../static/bundle.js"></script>
-  <script>
-    let tinyShell = new TinyShell(320,240,14, document.getElementById("shell"));
-  </script>
+  <script src="../static/shell-bundle.js"></script>
+  <script src="../static/compiler-bundle.js"></script>
 </body>
 
 </html>

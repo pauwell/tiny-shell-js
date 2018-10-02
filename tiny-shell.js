@@ -1,13 +1,5 @@
-// Main entry point.
-module.exports = TinyShell = require("./src/shell.js");
+"use strict";
 
-/*
-  @TODO: 
-    - Split into:
-      Window  -> Canvas
-      Prompt  -> Cursor
-      History -> Buffer 
-
-      Have a look right here:
-      https://mochajs.org/
-*/
+const TinyShell = require("./src/shell/shell.js");
+let shellNode = document.getElementById("shell-wrap");
+let tinyShell = new TinyShell(320, 240, 14, shellNode);
