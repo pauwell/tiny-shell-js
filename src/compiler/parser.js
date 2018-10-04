@@ -11,7 +11,6 @@ function parser(tokens) {
   // Creating recursive walk function.
   function walk() {
     let tok = tokens[current]; // Grab the current token.
-    console.log(tok);
 
     if (tok.type === "number") {
       ++current;

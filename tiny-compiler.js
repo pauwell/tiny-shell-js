@@ -6,8 +6,6 @@ let compilerInputTextarea = document.getElementById("compiler-input");
 let compilerCompileButton = document.getElementById("compiler-compile");
 let compilerOutputTextarea = document.getElementById("compiler-output");
 
-console.log(compilerCompileButton);
-
 compilerCompileButton.addEventListener(
   "click",
   function() {

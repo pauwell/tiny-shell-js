@@ -11,6 +11,7 @@ describe("Test TinyShell", function() {
       let out = new TinyShell(320, 240, 14, null).prompt
         .write("done")
         .rawBuffer();
+      Expect(out).to.be.a("string");
       Expect(out).to.equal("done");
     });
 
@@ -19,16 +20,19 @@ describe("Test TinyShell", function() {
         .write("done")
         .flush()
         .rawBuffer();
+      Expect(out).to.be.a("string");
       Expect(out).to.be.empty;
     });
 
     it("Pop", function() {
       let out = new TinyShell().prompt
-        .write("done")
+        .write("1234")
         .pop()
         .pop()
         .rawBuffer();
-      Expect(out).to.equal("do");
+      Expect(out).to.be.a("string");
+      Expect(out).to.be.lengthOf(2);
+      Expect(out).to.equal("12");
     });
   });
 });

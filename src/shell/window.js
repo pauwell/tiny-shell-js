@@ -8,11 +8,17 @@ module.exports = class Window {
     this._height = height;
     this._fontSize = fontSize;
     this._canvas = canvas;
-    this._canvas.width = width;
-    this._canvas.height = height;
+    if(canvas){
+      this._canvas.width = width;
+      this._canvas.height = height;
+    }
   }
 
   draw(historyText, promptText) {
+    if(!(this._canvas)){
+      return;
+    }
+
     // Get the canvas context.
     let context = this._canvas.getContext("2d");
 

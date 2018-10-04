@@ -16,24 +16,25 @@ module.exports = class Shell {
     this.window.draw(this.history.read(), this.prompt.read());
 
     // Handle keyboard-input.
-    canvas.setAttribute("tabindex", "1");
-    canvas.addEventListener(
-      "keydown",
-      function(e) {
-        var k = e.key;
-        if (k == "Backspace") {
-          this.prompt.pop();
-        } else if (k == "Enter") {
-          this.history.write(this.prompt.rawBuffer());
-          this.prompt.flush();
-        } else {
-          this.prompt.write(k);
-        }
-        this.window.draw(this.history.read(), this.prompt.read());
-        console.log(this.prompt.read());
-      }.bind(this),
-      false
-    );
+    if(canvas){
+      canvas.setAttribute("tabindex", "1");
+      canvas.addEventListener(
+        "keydown",
+        function(e) {
+          var k = e.key;
+          if (k == "Backspace") {
+            this.prompt.pop();
+          } else if (k == "Enter") {
+            this.history.write(this.prompt.rawBuffer());
+            this.prompt.flush();
+          } else {
+            this.prompt.write(k);
+          }
+          this.window.draw(this.history.read(), this.prompt.read());
+        }.bind(this),
+        false
+      );
+    }
   }
 
   get history() {
